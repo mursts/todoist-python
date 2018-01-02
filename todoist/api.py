@@ -2,6 +2,7 @@ import os
 import uuid
 import json
 import requests
+import requests_toolbelt.adapters.appengine
 import datetime
 import functools
 
@@ -27,6 +28,8 @@ from todoist.managers.templates import TemplatesManager
 from todoist.managers.backups import BackupsManager
 from todoist.managers.quick import QuickManager
 from todoist.managers.emails import EmailsManager
+
+requests_toolbelt.adapters.appengine.monkeypatch()
 
 
 class SyncError(Exception):
